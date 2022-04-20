@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plano de Desenvolvimento Individual (PDI)</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body class="font-sans text-base text-gray-700">
+    <main class="bg-slate-700 p-4">
+      <form
+        class="bg-white rounded p-8 max-w-3xl mx-auto flex flex-col shadow-md"
+        onsubmit="handleSubmit(event)"
+        aria-live="polite"
+      >
+        <h1 id="firstHeading" tabindex="-1" class="text-4xl mb-8">
+          Plano de Desenvolvimento Individual (PDI)
+        </h1>
+        <div>
+          <button
+            class="mr-auto bg-slate-600 rounded p-2 text-white cursor-pointer border-none"
+            type="button"
+            onclick="document.querySelector('#contentFile').click()"
+          >
+            Importar PDI
+          </button>
+          <span id="selectedFile">Nenhum arquivo importado</span>
+        </div>
+        <input
+          id="contentFile"
+          style="display: none"
+          type="file"
+          accept="application/json"
+          placeholder="Importar arquivo"
+          onchange="handleJSONupload(event)"
+        />
+        <fieldset>
+          <div class="mt-8">
+            <label class="font-medium text-lg" for="name">Nome</label><br />
+            <input
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+              type="text"
+              id="name"
+              name="name"
+            /><br />
+          </div>
+          <div class="mt-8">
+            <label for="objetivo"
+              ><h2 class="font-medium text-lg inline-block">
+                Objetivo de carreira em 3 anos.
+              </h2>
+              <br /><span
+                >Você é o protagonista do seu plano de desenvolvimento. Por
+                isso, a construção do seu PDI deve começar com sua aspiração de
+                carreira, ou seja, seu objetivo a médio prazo.</span
+              ></label
+            ><br />
+            <textarea
+              class="font-sans w-full mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+              rows="3"
+              type="text"
+              id="objetivo"
+              name="objetivo"
+            ></textarea
+            ><br />
+          </div>
+          <div class="mt-8">
+            <label for="expectativa"
+              ><h2 class="font-medium text-lg inline-block">
+                Expectativa de carreira para o próximo ano.
+              </h2>
+              <br /><span
+                >Faça sua reflexão baseando-se no seu momento de vida e na
+                autoavaliação de carreira (momento de carreira, prontidão para
+                promoção, movimentações, desempenho de outros papéis e/ou
+                funções).</span
+              ></label
+            ><br />
+            <textarea
+              class="font-sans w-full mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+              rows="3"
+              type="text"
+              id="expectativa"
+              name="expectativa"
+            ></textarea
+            ><br />
+          </div>
+          <div class="mt-8">
+            <label for="habilidades"
+              ><h2 class="font-medium text-lg inline-block">
+                Quais as principais habilidades necessárias para atingir a minha
+                expectativa de carreira?
+              </h2>
+              <br /><span
+                >Escolha as 4 principais habilidades e os níveis de proficiência
+                que serão desenvolvidas nesse ano, e as ordene por prioridade.
+                Sugerimos usar o primeiro ciclo para desenvolver uma habilidade
+                que impacte mais a sua atuação, dependendo do seu momento você
+                pode utilizar o segundo ciclo sobre algo mais relacionado ao
+                próximo passo no seu plano de ação, já no terceiro ciclo pode
+                escolher desenvolver uma habilidade voltada para contexto da
+                área ou da especialidade.</span
+              ></label
+            ><br />
+            <fieldset class="mt-2" id="habilidades" name="habilidades">
+              <label for="habilidade1">1ª habilidade:</label><br />
+              <input
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                type="text"
+                id="habilidade1"
+                name="habilidade1"
+              /><br />
+              <label for="habilidade2">2ª habilidade:</label><br />
+              <input
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                type="text"
+                id="habilidade2"
+                name="habilidade2"
+              /><br />
+              <label for="habilidade3">3ª habilidade:</label><br />
+              <input
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                type="text"
+                id="habilidade3"
+                name="habilidade3"
+              /><br />
+              <label for="habilidade4">4ª habilidade:</label><br />
+              <input
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                type="text"
+                id="habilidade4"
+                name="habilidade4"
+              /><br />
+            </fieldset>
+          </div>
+          <div class="mt-8">
+            <label for="planoAcao"
+              ><h2 class="font-medium text-lg inline-block">Plano de ação</h2>
+              <br /><span
+                >As ações devem ser estruturadas em um ciclo de 90 dias, sendo
+                recomendado que foque em 1 ação por vez (a depender do grau de
+                complexidade). Isso garante o foco no desenvolvimento e uma
+                reorientação tempestiva, caso necessário. Os sponsors não
+                precisam ser gestores, o ideal é que seja uma pessoa que domina
+                o assunto que será tratado naquela ação. Importante: a
+                construção do PDI deverá ser o reflexo da visão do colegiado
+                sobre você e sua expectativa de carreira.</span
+              ></label
+            ><br />
+            <fieldset class="mt-2" id="planoAcao" name="planoAcao">
+              <fieldset>
+                <label for="planoAcao1"
+                  ><h3 class="inline-block">1º plano de ação:</h3></label
+                ><br />
+                <textarea
+                  class="font-sans w-full mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                  rows="3"
+                  type="text"
+                  id="planoAcao1"
+                  name="planoAcao1"
+                ></textarea
+                ><br />
+                <label for="prazoPlanoAcao1">Prazo</label><br />
+                <input
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                  type="text"
+                  id="prazoPlanoAcao1"
+                  name="prazoPlanoAcao1"
+                /><br />
+                <label for="sponsorPlanoAcao1">Apoio (sponsor)</label><br />
+                <input
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                  type="text"
+                  id="sponsorPlanoAcao1"
+                  name="sponsorPlanoAcao1"
+                />
+              </fieldset>
+              <br />
+              <fieldset>
+                <label for="planoAcao2"
+                  ><h3 class="inline-block">2º plano de ação:</h3></label
+                ><br />
+                <textarea
+                  class="font-sans w-full mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                  rows="3"
+                  type="text"
+                  id="planoAcao2"
+                  name="planoAcao2"
+                ></textarea
+                ><br />
+                <label for="prazoPlanoAcao2">Prazo</label><br />
+                <input
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                  type="text"
+                  id="prazoPlanoAcao2"
+                  name="prazoPlanoAcao2"
+                /><br />
+                <label for="sponsorPlanoAcao2">Apoio (sponsor)</label><br />
+                <input
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                  type="text"
+                  id="sponsorPlanoAcao2"
+                  name="sponsorPlanoAcao2"
+                />
+              </fieldset>
+              <br />
+              <fieldset>
+                <label for="planoAcao3"
+                  ><h3 class="inline-block">3º plano de ação:</h3></label
+                ><br />
+                <textarea
+                  class="font-sans w-full mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                  rows="3"
+                  type="text"
+                  id="planoAcao3"
+                  name="planoAcao3"
+                ></textarea
+                ><br />
+                <label for="prazoPlanoAcao3">Prazo</label><br />
+                <input
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                  type="text"
+                  id="prazoPlanoAcao3"
+                  name="prazoPlanoAcao3"
+                /><br />
+                <label for="sponsorPlanoAcao3">Apoio (sponsor)</label><br />
+                <input
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                  type="text"
+                  id="sponsorPlanoAcao3"
+                  name="sponsorPlanoAcao3"
+                />
+              </fieldset>
+              <br />
+              <fieldset>
+                <label for="planoAcao4"
+                  ><h3 class="inline-block">4º plano de ação:</h3></label
+                ><br />
+                <textarea
+                  class="font-sans w-full mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                  rows="3"
+                  type="text"
+                  id="planoAcao4"
+                  name="planoAcao4"
+                ></textarea
+                ><br />
+                <label for="prazoPlanoAcao4">Prazo</label><br />
+                <input
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                  type="text"
+                  id="prazoPlanoAcao4"
+                  name="prazoPlanoAcao4"
+                /><br />
+                <label for="sponsorPlanoAcao4">Apoio (sponsor)</label><br />
+                <input
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border border-solid"
+                  type="text"
+                  id="sponsorPlanoAcao4"
+                  name="sponsorPlanoAcao4"
+                />
+              </fieldset>
+            </fieldset>
+          </div>
+        </fieldset>
+        <button
+          class="ml-auto mt-8 bg-slate-600 rounded p-2 text-white cursor-pointer border-none"
+        >
+          Salvar PDI
+        </button>
+        <p class="ml-auto mt-4">
+          Desenvolvido por
+          <a
+            href="https://linkedin.com/in/marcel-camargo"
+            alt="LinkedIn Marcel Camargo"
+            target="blank"
+            >Marcel Camargo</a
+          >
+        </p>
+      </form>
+    </main>
+  </body>
+</html>
